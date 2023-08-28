@@ -53,43 +53,51 @@ public class Pedido {
 	public static void criarPedido() {
         Scanner scan = new Scanner(System.in);
         itensConsumidos = new ArrayList<>();
+        boolean sair = true;
+        int opcao;
 
-        while (true) {
-            System.out.println("Escolha uma opção:");
-            System.out.println("1) Adicionar Lanche");
-            System.out.println("2) Adicionar Pizza");
-            System.out.println("3) Adicionar Salgadinho");
-            System.out.println("4) Finalizar Pedido");
+        while (sair) {
+			while (true) {
+				System.out.println("Escolha uma opção:");
+				System.out.println("1) Adicionar Lanche");
+				System.out.println("2) Adicionar Pizza");
+				System.out.println("3) Adicionar Salgadinho");
+				System.out.println("4) Finalizar Pedido");
 
-            int opcao = scan.nextInt();
-            scan.nextLine(); // Para consumir a quebra de linha
+				opcao = scan.nextInt();
+				scan.nextLine(); // Para consumir a quebra de linha
 
-            if (opcao == 1) {
-            	Lanche novoLanche = new Lanche();
-                novoLanche.criarLanche();
-                itensConsumidos.add(novoLanche);
-            	
-            } else if (opcao == 2) {
-            	Pizza novaPizza = new Pizza();
-            	novaPizza.criarPizza();
-            	itensConsumidos.add(novaPizza);
-            	
-            } else if (opcao == 3) {
-            	Salgadinho novoSalgadinho = new Salgadinho();
-            	novoSalgadinho.criarSalgadinho();
-            	itensConsumidos.add(novoSalgadinho);
-                
-            } else if (opcao == 4) {
-                
-                imprimirNotaFiscal();
-                break; 
-            } else {
-                System.out.println("Opção inválida. Tente novamente.");
-            }
-        }
+				if (opcao == 1) {
+					Lanche novoLanche = new Lanche();
+					novoLanche.criarLanche();
+					itensConsumidos.add(novoLanche);
 
-        
-        scan.close();
+				} else if (opcao == 2) {
+					Pizza novaPizza = new Pizza();
+					novaPizza.criarPizza();
+					itensConsumidos.add(novaPizza);
+
+				} else if (opcao == 3) {
+					Salgadinho novoSalgadinho = new Salgadinho();
+					novoSalgadinho.criarSalgadinho();
+					itensConsumidos.add(novoSalgadinho);
+
+				} else if (opcao == 4) {
+
+					imprimirNotaFiscal();
+					break;
+				} else {
+					System.out.println("Opção inválida. Tente novamente.");
+				}
+			}
+			System.out.println("Deseja fazer um novo pedido?");
+			System.out.println("1) Sim\n2) Não");
+			opcao = scan.nextInt();
+			if((opcao != 1)) {
+				sair = false;
+			}
+		}
+		scan.close();
     }
 	
 	public static double calcularTotal() {
@@ -152,7 +160,7 @@ public class Pedido {
 	    }
 	    
 	    System.out.println("\n--------Fim---------");
-	    scan.close();
+	    
 	}
  }
 
