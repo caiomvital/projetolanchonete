@@ -35,5 +35,7 @@ Este projeto resolve o exercício proposto no seguinte link:
 [Exercício - Sistema de Lanchonete](https://www.computersciencemaster.com.br/exercicio-sistema-de-lanchonete/)
 
 Autor
+
 Nome: Caio Vital
+
 E-mail: caiomvital@gmail.com
